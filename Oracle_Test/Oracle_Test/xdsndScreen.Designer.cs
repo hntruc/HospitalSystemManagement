@@ -41,21 +41,23 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 30);
+            this.dataGridView1.Location = new System.Drawing.Point(67, 85);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 123;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(522, 209);
+            this.dataGridView1.Size = new System.Drawing.Size(1653, 595);
             this.dataGridView1.TabIndex = 1;
             // 
             // back_btn
             // 
             this.back_btn.BackColor = System.Drawing.Color.LightSteelBlue;
             this.back_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.back_btn.Location = new System.Drawing.Point(-1, 258);
+            this.back_btn.Location = new System.Drawing.Point(-3, 734);
+            this.back_btn.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.back_btn.Name = "back_btn";
-            this.back_btn.Size = new System.Drawing.Size(32, 27);
+            this.back_btn.Size = new System.Drawing.Size(101, 77);
             this.back_btn.TabIndex = 11;
             this.back_btn.Text = "⬅";
             this.back_btn.UseVisualStyleBackColor = false;
@@ -63,14 +65,14 @@
             // 
             // xdsndScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.ClientSize = new System.Drawing.Size(567, 285);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1796, 811);
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "xdsndScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XEM DANH SÁCH NGƯỜI DÙNG TRONG HỆ THỐNG";
             this.Load += new System.EventHandler(this.xdsndScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

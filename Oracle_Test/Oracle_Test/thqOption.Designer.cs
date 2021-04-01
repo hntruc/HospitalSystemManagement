@@ -58,11 +58,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Thistle;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1069, 370);
             this.Controls.Add(this.role_btn);
             this.Controls.Add(this.user_btn);
             this.Name = "thqOption";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "thqOption";
             this.ResumeLayout(false);
 

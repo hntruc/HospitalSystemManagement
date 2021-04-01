@@ -60,6 +60,7 @@
             this.Controls.Add(this.nobject_btn);
             this.Controls.Add(this.yobject_btn);
             this.Name = "cqcu_Option";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cqcuo_Screen";
             this.ResumeLayout(false);
 

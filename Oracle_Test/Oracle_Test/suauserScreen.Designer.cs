@@ -93,6 +93,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "suauserScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "suauserScreen";
             this.ResumeLayout(false);
             this.PerformLayout();

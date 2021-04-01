@@ -65,12 +65,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2074, 391);
             this.Controls.Add(this.r_btn);
             this.Controls.Add(this.cqk_btn);
             this.Controls.Add(this.qtbpf_btn);
             this.Name = "thqScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "thqScreen";
             this.ResumeLayout(false);
 

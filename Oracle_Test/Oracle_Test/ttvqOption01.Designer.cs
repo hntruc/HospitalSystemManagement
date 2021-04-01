@@ -76,6 +76,7 @@
             this.Controls.Add(this.ttvqcutcdtdl_btn);
             this.Controls.Add(this.ttvqcu_btn);
             this.Name = "ttvqOption01";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ttvqOption01";
             this.ResumeLayout(false);
 

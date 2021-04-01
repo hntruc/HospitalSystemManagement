@@ -89,6 +89,7 @@
             this.Controls.Add(this.xoa_btn);
             this.Controls.Add(this.them_btn);
             this.Name = "txsur_role_Option";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "txsur_role_Option";
             this.ResumeLayout(false);
 

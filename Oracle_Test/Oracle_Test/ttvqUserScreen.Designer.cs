@@ -103,6 +103,7 @@
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ttvqUserScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ttvqUserScreen";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

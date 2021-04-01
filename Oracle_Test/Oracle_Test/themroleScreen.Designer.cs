@@ -71,6 +71,7 @@
             this.Controls.Add(this.role_text);
             this.Controls.Add(this.label1);
             this.Name = "themroleScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "themroleScreen";
             this.ResumeLayout(false);
             this.PerformLayout();

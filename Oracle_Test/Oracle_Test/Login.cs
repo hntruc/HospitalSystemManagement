@@ -26,7 +26,7 @@ namespace Oracle_Test
 
             try
             {
-                string name = "checkLogin";
+                string name = "admin1.checkLogin";
                 OracleCommand cmd = new OracleCommand(name, con);
              
                 cmd.CommandType = CommandType.StoredProcedure;

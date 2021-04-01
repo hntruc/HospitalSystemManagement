@@ -55,12 +55,6 @@
     <Compile Include="capRoleUserScreen.Designer.cs">
       <DependentUpon>capRoleUserScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="cqcuScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="cqcuScreen.Designer.cs">
-      <DependentUpon>cqcuScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="cqcu_Option.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,12 +98,6 @@
       <DependentUpon>functionScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="globalConnect.cs" />
-    <Compile Include="InitialScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InitialScreen.Designer.cs">
-      <DependentUpon>InitialScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,9 +212,6 @@
     <EmbeddedResource Include="capRoleUserScreen.resx">
       <DependentUpon>capRoleUserScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cqcuScreen.resx">
-      <DependentUpon>cqcuScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="cqcu_Option.resx">
       <DependentUpon>cqcu_Option.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="functionScreen.resx">
       <DependentUpon>functionScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InitialScreen.resx">
-      <DependentUpon>InitialScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

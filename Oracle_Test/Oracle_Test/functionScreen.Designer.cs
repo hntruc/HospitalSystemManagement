@@ -115,6 +115,7 @@
             this.Controls.Add(this.ttvq_btn);
             this.Controls.Add(this.xdsnd_btn);
             this.Name = "functionScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "functionScreen";
             this.ResumeLayout(false);
 
