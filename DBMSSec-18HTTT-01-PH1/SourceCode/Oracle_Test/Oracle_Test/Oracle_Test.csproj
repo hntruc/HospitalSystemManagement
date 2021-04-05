@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4279659C-5AF6-4641-8206-1FD97818A623}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Oracle_Test</RootNamespace>
+    <AssemblyName>Oracle_Test</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.11.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="capRoleUserScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capRoleUserScreen.Designer.cs">
+      <DependentUpon>capRoleUserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cqcroOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqcroOption.Designer.cs">
+      <DependentUpon>cqcroOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cqcro_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqcro_Screen.Designer.cs">
+      <DependentUpon>cqcro_Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cqcro_Screen_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqcro_Screen_Update.Designer.cs">
+      <DependentUpon>cqcro_Screen_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cqcuo_Option.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqcuo_Option.Designer.cs">
+      <DependentUpon>cqcuo_Option.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cqcuo_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqcuo_Screen.Designer.cs">
+      <DependentUpon>cqcuo_Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cqcuo_Screen_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqcuo_Screen_Update.Designer.cs">
+      <DependentUpon>cqcuo_Screen_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cqOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cqOption.Designer.cs">
+      <DependentUpon>cqOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="functionScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="functionScreen.Designer.cs">
+      <DependentUpon>functionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="globalConnect.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OraCon.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="suauserScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="suauserScreen.Designer.cs">
+      <DependentUpon>suauserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="themroleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="themroleScreen.Designer.cs">
+      <DependentUpon>themroleScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="themuserScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="themuserScreen.Designer.cs">
+      <DependentUpon>themuserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thqUserOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thqUserOption.Designer.cs">
+      <DependentUpon>thqUserOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thuHoiQuyenOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thuHoiQuyenOption.Designer.cs">
+      <DependentUpon>thuHoiQuyenOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thuHoiQuyenRoleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thuHoiQuyenRoleScreen.Designer.cs">
+      <DependentUpon>thuHoiQuyenRoleScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thuHoiQuyenUserScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thuHoiQuyenUserScreen.Designer.cs">
+      <DependentUpon>thuHoiQuyenUserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thuHoiRoleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thuHoiRoleScreen.Designer.cs">
+      <DependentUpon>thuHoiRoleScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ttvqOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ttvqOption.Designer.cs">
+      <DependentUpon>ttvqOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ttvqOption01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ttvqOption01.Designer.cs">
+      <DependentUpon>ttvqOption01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ttvqScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ttvqScreen.Designer.cs">
+      <DependentUpon>ttvqScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ttvqUserScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ttvqUserScreen.Designer.cs">
+      <DependentUpon>ttvqUserScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ttvq_u_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ttvq_u_Screen.Designer.cs">
+      <DependentUpon>ttvq_u_Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="txsurOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="txsurOption.Designer.cs">
+      <DependentUpon>txsurOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="txsur_role_Option.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="txsur_role_Option.Designer.cs">
+      <DependentUpon>txsur_role_Option.cs</DependentUpon>
+    </Compile>
+    <Compile Include="txsur_user_Option.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="txsur_user_Option.Designer.cs">
+      <DependentUpon>txsur_user_Option.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xdsndScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xdsndScreen.Designer.cs">
+      <DependentUpon>xdsndScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xoaroleScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xoaroleScreen.Designer.cs">
+      <DependentUpon>xoaroleScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xoauserScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xoauserScreen.Designer.cs">
+      <DependentUpon>xoauserScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="capRoleUserScreen.resx">
+      <DependentUpon>capRoleUserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cqcroOption.resx">
+      <DependentUpon>cqcroOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cqcro_Screen.resx">
+      <DependentUpon>cqcro_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cqcro_Screen_Update.resx">
+      <DependentUpon>cqcro_Screen_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cqcuo_Option.resx">
+      <DependentUpon>cqcuo_Option.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cqcuo_Screen.resx">
+      <DependentUpon>cqcuo_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cqcuo_Screen_Update.resx">
+      <DependentUpon>cqcuo_Screen_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cqOption.resx">
+      <DependentUpon>cqOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="functionScreen.resx">
+      <DependentUpon>functionScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="suauserScreen.resx">
+      <DependentUpon>suauserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="themroleScreen.resx">
+      <DependentUpon>themroleScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="themuserScreen.resx">
+      <DependentUpon>themuserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thqUserOption.resx">
+      <DependentUpon>thqUserOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thuHoiQuyenOption.resx">
+      <DependentUpon>thuHoiQuyenOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thuHoiQuyenRoleScreen.resx">
+      <DependentUpon>thuHoiQuyenRoleScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thuHoiQuyenUserScreen.resx">
+      <DependentUpon>thuHoiQuyenUserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thuHoiRoleScreen.resx">
+      <DependentUpon>thuHoiRoleScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ttvqOption.resx">
+      <DependentUpon>ttvqOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ttvqOption01.resx">
+      <DependentUpon>ttvqOption01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ttvqScreen.resx">
+      <DependentUpon>ttvqScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ttvqUserScreen.resx">
+      <DependentUpon>ttvqUserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ttvq_u_Screen.resx">
+      <DependentUpon>ttvq_u_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="txsurOption.resx">
+      <DependentUpon>txsurOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="txsur_role_Option.resx">
+      <DependentUpon>txsur_role_Option.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="txsur_user_Option.resx">
+      <DependentUpon>txsur_user_Option.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xdsndScreen.resx">
+      <DependentUpon>xdsndScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xoaroleScreen.resx">
+      <DependentUpon>xoaroleScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xoauserScreen.resx">
+      <DependentUpon>xoauserScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
