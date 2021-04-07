@@ -37,7 +37,8 @@ namespace Oracle_Test
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                MessageBox.Show("Role không tồn tại.");
             }
             con.Close();
 

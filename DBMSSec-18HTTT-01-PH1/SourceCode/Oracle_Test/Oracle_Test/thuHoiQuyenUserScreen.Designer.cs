@@ -48,9 +48,10 @@
             // 
             this.button3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1, 217);
+            this.button3.Location = new System.Drawing.Point(3, 618);
+            this.button3.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 27);
+            this.button3.Size = new System.Drawing.Size(101, 77);
             this.button3.TabIndex = 35;
             this.button3.Text = "⬅";
             this.button3.UseVisualStyleBackColor = false;
@@ -59,10 +60,9 @@
             // update_radio
             // 
             this.update_radio.AutoSize = true;
-            this.update_radio.Location = new System.Drawing.Point(733, 91);
-            this.update_radio.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.update_radio.Location = new System.Drawing.Point(2321, 259);
             this.update_radio.Name = "update_radio";
-            this.update_radio.Size = new System.Drawing.Size(69, 17);
+            this.update_radio.Size = new System.Drawing.Size(191, 41);
             this.update_radio.TabIndex = 34;
             this.update_radio.TabStop = true;
             this.update_radio.Text = "UPDATE";
@@ -71,10 +71,9 @@
             // select_radio
             // 
             this.select_radio.AutoSize = true;
-            this.select_radio.Location = new System.Drawing.Point(650, 91);
-            this.select_radio.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.select_radio.Location = new System.Drawing.Point(2058, 259);
             this.select_radio.Name = "select_radio";
-            this.select_radio.Size = new System.Drawing.Size(66, 17);
+            this.select_radio.Size = new System.Drawing.Size(185, 41);
             this.select_radio.TabIndex = 33;
             this.select_radio.TabStop = true;
             this.select_radio.Text = "SELECT";
@@ -82,9 +81,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(747, 152);
+            this.button1.Location = new System.Drawing.Point(2366, 433);
+            this.button1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 21);
+            this.button1.Size = new System.Drawing.Size(200, 60);
             this.button1.TabIndex = 32;
             this.button1.Text = "Thu hồi";
             this.button1.UseVisualStyleBackColor = true;
@@ -93,49 +93,55 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(572, 121);
+            this.label3.Location = new System.Drawing.Point(1811, 344);
+            this.label3.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.Size = new System.Drawing.Size(210, 37);
             this.label3.TabIndex = 31;
             this.label3.Text = "TABLE/VIEW";
             // 
             // object_text
             // 
-            this.object_text.Location = new System.Drawing.Point(650, 118);
+            this.object_text.Location = new System.Drawing.Point(2058, 336);
+            this.object_text.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.object_text.Name = "object_text";
-            this.object_text.Size = new System.Drawing.Size(163, 20);
+            this.object_text.Size = new System.Drawing.Size(508, 44);
             this.object_text.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(572, 91);
+            this.label2.Location = new System.Drawing.Point(1811, 259);
+            this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.Size = new System.Drawing.Size(132, 37);
             this.label2.TabIndex = 29;
             this.label2.Text = "QUYỀN";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(572, 65);
+            this.label1.Location = new System.Drawing.Point(1811, 185);
+            this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(178, 37);
             this.label1.TabIndex = 28;
             this.label1.Text = "TÊN USER";
             // 
             // rolename_text
             // 
-            this.rolename_text.Location = new System.Drawing.Point(650, 62);
+            this.rolename_text.Location = new System.Drawing.Point(2058, 176);
+            this.rolename_text.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.rolename_text.Name = "rolename_text";
-            this.rolename_text.Size = new System.Drawing.Size(163, 20);
+            this.rolename_text.Size = new System.Drawing.Size(508, 44);
             this.rolename_text.TabIndex = 27;
             // 
             // xem_btn
             // 
-            this.xem_btn.Location = new System.Drawing.Point(441, 22);
+            this.xem_btn.Location = new System.Drawing.Point(1397, 77);
+            this.xem_btn.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.xem_btn.Name = "xem_btn";
-            this.xem_btn.Size = new System.Drawing.Size(63, 21);
+            this.xem_btn.Size = new System.Drawing.Size(200, 60);
             this.xem_btn.TabIndex = 26;
             this.xem_btn.Text = "Xem";
             this.xem_btn.UseVisualStyleBackColor = true;
@@ -144,41 +150,43 @@
             // Role
             // 
             this.Role.AutoSize = true;
-            this.Role.Location = new System.Drawing.Point(29, 30);
+            this.Role.Location = new System.Drawing.Point(92, 85);
+            this.Role.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.Role.Name = "Role";
-            this.Role.Size = new System.Drawing.Size(68, 13);
+            this.Role.Size = new System.Drawing.Size(197, 37);
             this.Role.TabIndex = 25;
             this.Role.Text = "USERNAME";
             // 
             // username_text
             // 
-            this.username_text.Location = new System.Drawing.Point(103, 27);
+            this.username_text.Location = new System.Drawing.Point(326, 77);
+            this.username_text.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.username_text.Name = "username_text";
-            this.username_text.Size = new System.Drawing.Size(326, 20);
+            this.username_text.Size = new System.Drawing.Size(1024, 44);
             this.username_text.TabIndex = 24;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 60);
+            this.dataGridView1.Location = new System.Drawing.Point(98, 171);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 123;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(473, 122);
+            this.dataGridView1.Size = new System.Drawing.Size(1498, 347);
             this.dataGridView1.TabIndex = 23;
             // 
             // thuHoiQuyenUserScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(853, 246);
+            this.ClientSize = new System.Drawing.Size(2701, 700);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.update_radio);
             this.Controls.Add(this.select_radio);
@@ -192,7 +200,6 @@
             this.Controls.Add(this.Role);
             this.Controls.Add(this.username_text);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "thuHoiQuyenUserScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THU HỒI QUYỀN";

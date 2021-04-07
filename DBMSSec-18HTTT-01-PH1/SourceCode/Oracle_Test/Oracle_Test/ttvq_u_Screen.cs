@@ -26,20 +26,23 @@ namespace Oracle_Test
                 ";Password=" + globalConnect.password + ";Data Source=localhost:1521/xe";
             con.Open();
 
-            string command = "select GRANTEE, TABLE_NAME, PRIVILEGE, TYPE, GRANTABLE, GRANTOR from dba_tab_privs where GRANTEE =" + "'" + role_text.Text.ToUpper() + "'";
             try
             {
-                using (OracleCommand cmd = new OracleCommand(command, con))
-                {
+                string name = "admin1.xemQuyenRoleObject";
+                OracleCommand cmd = new OracleCommand(name, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new OracleParameter
+                    ("l_re", OracleDbType.RefCursor, ParameterDirection.ReturnValue));
+                cmd.Parameters.Add("rolename", OracleDbType.NVarchar2).Value = role_text.Text;
+                cmd.ExecuteNonQuery();
 
-                    using (OracleDataReader reader = cmd.ExecuteReader())
+                using (OracleDataReader reader = cmd.ExecuteReader())
                     {
                         DataTable dt = new DataTable();
                         dt.Load(reader);
                         dataGridView1.DataSource = dt;
                     }
 
-                }
                 con.Close();
             }
             catch (Exception ex)

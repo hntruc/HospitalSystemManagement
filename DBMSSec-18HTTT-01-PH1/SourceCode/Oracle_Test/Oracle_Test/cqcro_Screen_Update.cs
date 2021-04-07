@@ -194,6 +194,7 @@ namespace Oracle_Test
         }
         private void cq_btn_Click(object sender, EventArgs e)
         {
+            int check = 0;
             OracleConnection con = new OracleConnection();
             con.ConnectionString = "User Id=" + globalConnect.userid +
                 ";Password=" + globalConnect.password + ";Data Source=localhost:1521/xe";
@@ -214,11 +215,14 @@ namespace Oracle_Test
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    check = 1;
                 }
                 con.Close();
-                MessageBox.Show("Cấp quyền thành công!");
+                if (check != 1)
+                {
+                    MessageBox.Show("Cấp quyền thành công!");
+                }
 
-            
         }
 
         private void button1_Click(object sender, EventArgs e)

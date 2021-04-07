@@ -109,7 +109,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(1115, 558);
+            this.ClientSize = new System.Drawing.Size(953, 558);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.y_radio);
             this.Controls.Add(this.cq_btn);

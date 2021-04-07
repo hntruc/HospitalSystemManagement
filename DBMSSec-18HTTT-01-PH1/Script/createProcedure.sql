@@ -115,6 +115,59 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE function admin1.xemDanhSachUser
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT username FROM dba_users;
+    return l_re;
+end;
+/
+
+CREATE OR REPLACE function admin1.xemQuyenUserObject(
+username IN NVARCHAR2)
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+user_name NVARCHAR2(1000) := username;
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT GRANTEE, TABLE_NAME, PRIVILEGE, TYPE, GRANTABLE, GRANTOR from dba_tab_privs
+    where GRANTEE = upper(user_name);
+    return l_re;
+end;
+/
+
+CREATE OR REPLACE function admin1.xemQuyenRoleObject(
+rolename IN NVARCHAR2)
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+role_name NVARCHAR2(1000) := rolename;
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT GRANTEE, TABLE_NAME, PRIVILEGE, TYPE, GRANTABLE, GRANTOR from dba_tab_privs
+    where GRANTEE = upper(role_name);
+    return l_re;
+end;
+/
+
+CREATE OR REPLACE function admin1.xemQuyenUser(
+username IN NVARCHAR2)
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+user_name NVARCHAR2(1000) := username;
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT * from dba_sys_privs
+    where GRANTEE = upper(user_name);
+    return l_re;
+end;
+/
+
 CREATE OR REPLACE procedure admin1.createUser(
 username IN NVARCHAR2,
 pass_word IN NVARCHAR2) 
@@ -185,12 +238,11 @@ as
 role_name NVARCHAR2(1000) 		:= rolename;
 caulenh   VARCHAR2 (1000);
 BEGIN
---    caulenh := 'alter session set "_ORACLE_SCRIPT"=true';
---    EXECUTE IMMEDIATE ( caulenh );  
+    caulenh := 'alter session set "_ORACLE_SCRIPT"=true';
+    EXECUTE IMMEDIATE ( caulenh );  
     caulenh := 'drop role ' || role_name;
 	EXECUTE IMMEDIATE ( caulenh );                                        
 END;
-/
 
     -- Cap role cho user
     CREATE OR REPLACE procedure admin1.grantRoleUser(

@@ -1,2 +1,0 @@
-- Sub của video nằm trong phần phụ đề (caption) trên youtube
-- Link youtube: https://www.youtube.com/watch?v=pA_7wifwgao

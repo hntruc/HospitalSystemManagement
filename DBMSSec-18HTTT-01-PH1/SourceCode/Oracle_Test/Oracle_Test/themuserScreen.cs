@@ -40,7 +40,8 @@ namespace Oracle_Test
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                MessageBox.Show("Tài khoản đã tồn tại.");
             }
             con.Close();
 

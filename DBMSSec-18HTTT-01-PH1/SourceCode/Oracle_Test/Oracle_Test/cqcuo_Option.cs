@@ -30,5 +30,12 @@ namespace Oracle_Test
             c.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cqOption c = new cqOption();
+            c.Show();
+            this.Hide();
+        }
     }
 }

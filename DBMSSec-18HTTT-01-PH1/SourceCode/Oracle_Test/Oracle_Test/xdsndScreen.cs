@@ -28,17 +28,20 @@ namespace Oracle_Test
 
             try
             {
-                using (OracleCommand cmd = new OracleCommand("SELECT username FROM dba_users", con))
+                string name = "admin1.xemDanhSachUser";
+                OracleCommand cmd = new OracleCommand(name, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new OracleParameter
+                    ("l_re", OracleDbType.RefCursor, ParameterDirection.ReturnValue));
+                cmd.ExecuteNonQuery();
+                using (OracleDataReader reader = cmd.ExecuteReader())
                 {
-
-                    using (OracleDataReader reader = cmd.ExecuteReader())
-                    {
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
-                        dataGridView1.DataSource = dt;
-                    }
-
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    dataGridView1.DataSource = dt;
                 }
+
+
                 con.Close();
             }
             catch (Exception ex)
