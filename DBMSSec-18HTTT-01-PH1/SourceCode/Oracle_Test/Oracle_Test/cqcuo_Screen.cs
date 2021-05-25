@@ -261,7 +261,7 @@ namespace Oracle_Test
                        
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add("username", OracleDbType.NVarchar2).Value = username_text.Text;
-                        cmd.Parameters.Add("check_num", OracleDbType.Int32).Value = 3;
+                        cmd.Parameters.Add("check_num", OracleDbType.Int32).Value = flag;
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -282,7 +282,6 @@ namespace Oracle_Test
                 {
                     using (OracleCommand cmd = new OracleCommand("admin1.grantQuyenObject", con))
                     {
-                       
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add("username", OracleDbType.NVarchar2).Value = username_text.Text;
                         cmd.Parameters.Add("check_num", OracleDbType.Int32).Value = flag;
@@ -299,10 +298,7 @@ namespace Oracle_Test
                 {
                     MessageBox.Show("Cấp quyền thành công!");
                 }
-
             }
         }
-
-
     }
 }

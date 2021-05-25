@@ -49,6 +49,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="auditDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="auditDT.Designer.cs">
+      <DependentUpon>auditDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="auditHSBN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="auditHSBN.Designer.cs">
+      <DependentUpon>auditHSBN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="auditLogOn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="auditLogOn.Designer.cs">
+      <DependentUpon>auditLogOn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="auditOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="auditOption.Designer.cs">
+      <DependentUpon>auditOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="capQuyenTheoChinhSachScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capQuyenTheoChinhSachScreen.Designer.cs">
+      <DependentUpon>capQuyenTheoChinhSachScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="capRoleUserPolicyScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capRoleUserPolicyScreen.Designer.cs">
+      <DependentUpon>capRoleUserPolicyScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="capRoleUserScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +133,12 @@
     <Compile Include="cqOption.Designer.cs">
       <DependentUpon>cqOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="doiTuongHienCoOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="doiTuongHienCoOption.Designer.cs">
+      <DependentUpon>doiTuongHienCoOption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +152,12 @@
       <DependentUpon>functionScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="globalConnect.cs" />
+    <Compile Include="HoSoBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HoSoBenhNhan.Designer.cs">
+      <DependentUpon>HoSoBenhNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +196,12 @@
     </Compile>
     <Compile Include="thuHoiQuyenOption.Designer.cs">
       <DependentUpon>thuHoiQuyenOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thuHoiQuyenRoleChinhSachScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thuHoiQuyenRoleChinhSachScreen.Designer.cs">
+      <DependentUpon>thuHoiQuyenRoleChinhSachScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="thuHoiQuyenRoleScreen.cs">
       <SubType>Form</SubType>
@@ -221,6 +275,12 @@
     <Compile Include="xdsndScreen.Designer.cs">
       <DependentUpon>xdsndScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="XemDSDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemDSDichVu.Designer.cs">
+      <DependentUpon>XemDSDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="xoaroleScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +293,24 @@
     <Compile Include="xoauserScreen.Designer.cs">
       <DependentUpon>xoauserScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="auditDT.resx">
+      <DependentUpon>auditDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="auditHSBN.resx">
+      <DependentUpon>auditHSBN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="auditLogOn.resx">
+      <DependentUpon>auditLogOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="auditOption.resx">
+      <DependentUpon>auditOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="capQuyenTheoChinhSachScreen.resx">
+      <DependentUpon>capQuyenTheoChinhSachScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="capRoleUserPolicyScreen.resx">
+      <DependentUpon>capRoleUserPolicyScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="capRoleUserScreen.resx">
       <DependentUpon>capRoleUserScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,11 +335,17 @@
     <EmbeddedResource Include="cqOption.resx">
       <DependentUpon>cqOption.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="doiTuongHienCoOption.resx">
+      <DependentUpon>doiTuongHienCoOption.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="functionScreen.resx">
       <DependentUpon>functionScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoSoBenhNhan.resx">
+      <DependentUpon>HoSoBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -289,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="thuHoiQuyenOption.resx">
       <DependentUpon>thuHoiQuyenOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thuHoiQuyenRoleChinhSachScreen.resx">
+      <DependentUpon>thuHoiQuyenRoleChinhSachScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="thuHoiQuyenRoleScreen.resx">
       <DependentUpon>thuHoiQuyenRoleScreen.cs</DependentUpon>
@@ -325,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="xdsndScreen.resx">
       <DependentUpon>xdsndScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XemDSDichVu.resx">
+      <DependentUpon>XemDSDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xoaroleScreen.resx">
       <DependentUpon>xoaroleScreen.cs</DependentUpon>

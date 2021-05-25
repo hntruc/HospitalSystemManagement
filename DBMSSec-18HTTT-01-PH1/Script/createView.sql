@@ -271,4 +271,8 @@ CREATE OR REPLACE VIEW ADMIN1.DICHVUG_NVDV AS
 SELECT *
 FROM ADMIN1.DICHVU;
 
-
+CREATE OR REPLACE VIEW admin1.HoSoBenhNhan_BS 
+AS
+select hsbn.makb as MAKB, stt, ngay as ngay, mabs, trieuchung, ketluan, ten, namsinh 
+from HOSOBENHAN hsbn
+join BENHNHAN bn on hsbn.makb = bn.makb;

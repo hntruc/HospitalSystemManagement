@@ -39,9 +39,8 @@ namespace Oracle_Test
 
                 string result = cmd.Parameters["sth"].Value.ToString();
 
-                if (result == "1")
+                if (result == "1") // Admin
                 {
-                    
                     con.Close();
 
                     globalConnect.userid = username_text.Text;
@@ -52,10 +51,43 @@ namespace Oracle_Test
                 ";Password=" + globalConnect.password + ";Data Source=localhost:1521/xe";
                     new_con.Open();
 
-                    functionScreen f = new functionScreen();
+                    functionScreen f = new functionScreen(new_con);
                     f.Show();
                     this.Hide();
                 }
+                else if (result == "2") // BacSi
+                {
+                    con.Close();
+
+                    globalConnect.userid = username_text.Text;
+                    globalConnect.password = password_text.Text;
+
+                    OracleConnection new_con = new OracleConnection();
+                    new_con.ConnectionString = "User Id=admin1;Password=abc;Data Source=localhost:1521/xe";
+                    new_con.Open();
+
+                    HoSoBenhNhan h = new HoSoBenhNhan(new_con);
+                    h.Show();
+                    this.Hide();
+
+                }
+                else if (result == "3") // Tiep tan va dieu phoi benh
+                {
+                    con.Close();
+
+                    globalConnect.userid = username_text.Text;
+                    globalConnect.password = password_text.Text;
+
+                    OracleConnection new_con = new OracleConnection();
+                    new_con.ConnectionString = "User Id=" + globalConnect.userid +
+                ";Password=" + globalConnect.password + ";Data Source=localhost:1521/xe";
+                    new_con.Open();
+
+                    XemDSDichVu x = new XemDSDichVu(new_con);
+                    x.Show();
+                    this.Hide();
+                }
+
                 else
                 {
                     MessageBox.Show("Đăng nhập thất bại!");
@@ -65,13 +97,40 @@ namespace Oracle_Test
             catch (Exception ex)
             {
                 MessageBox.Show("Đăng nhập thất bại!");
+                //MessageBox.Show(ex.ToString());
             }
             con.Close(); 
         }
 
         private void thoat_btn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            /*if (globalConnect.userid == "admin1" || globalConnect.userid == "ADMIN1")
+            {
+                Application.Exit();
+            }
+
+            else
+            {
+                OracleConnection con = new OracleConnection();
+
+                con.ConnectionString = "User Id=admin1;Password=abc;Data Source=localhost:1521/xe";
+                con.Open();
+                try
+                {
+                    using (OracleCommand cmd = new OracleCommand("admin1.logOut", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("username", OracleDbType.NVarchar2).Value = globalConnect.userid;
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                con.Close();*/
+                Application.Exit();
         }
     }
 }

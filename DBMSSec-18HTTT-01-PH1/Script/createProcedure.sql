@@ -16,20 +16,43 @@ grant SELECT ANY DICTIONARY to admin1;
 grant create role to admin1;
 grant drop user to admin1;
 grant alter system to admin1;
+grant select on admin1.NHANVIEN to admin1;
+/
+
+CREATE OR REPLACE FUNCTION admin1.getMALOAI(username IN char)
+   RETURN number
+   AS
+   check_tt char(10);
+begin
+    SELECT maloai into check_tt from admin1.nhanvien where manv = upper(username);
+    if check_tt = 'NVL05' then
+        return 1;
+    else
+        return 0;
+    end if;
+end;
 /
     -- Check dang nhap
 CREATE OR REPLACE FUNCTION admin1.checkLogin(username IN VARCHAR2)
    RETURN number
    AS
         user_name VARCHAR2(1000) := username;
-        caulenh   VARCHAR2 (1000);
         check_user integer;
         check_role integer;
+        check_bs VARCHAR2(1000);
+        check_tt CHAR(10);
     BEGIN
      SELECT count(*) into check_user FROM dba_users where username =  upper(user_name);
       SELECT count(*) into check_role FROM DBA_ROLE_PRIVS WHERE GRANTEE = upper(user_name) AND GRANTED_ROLE = 'DBA';
+      select admin1.getMALOAI(user_name) into check_tt from dual;
+     
+      check_bs := SUBSTR(username, 1, 2);
       IF check_user = 1 and check_role = 1 THEN
         RETURN 1;
+      ELSIF check_bs = 'BS' THEN
+        RETURN 2;
+     ELSIF check_tt = 1 THEN
+        RETURN 3;
       ELSE
         RETURN 0;
      END IF;
@@ -121,7 +144,7 @@ AUTHID CURRENT_USER
 is
 l_re SYS_REFCURSOR;
 begin
-    OPEN l_re for SELECT username FROM dba_users;
+    OPEN l_re for SELECT username FROM dba_users order by username ASC;
     return l_re;
 end;
 /
@@ -134,8 +157,8 @@ is
 user_name NVARCHAR2(1000) := username;
 l_re SYS_REFCURSOR;
 begin
-    OPEN l_re for SELECT GRANTEE, TABLE_NAME, PRIVILEGE, TYPE, GRANTABLE, GRANTOR from dba_tab_privs
-    where GRANTEE = upper(user_name);
+    OPEN l_re for SELECT y.TABLE_NAME, y.PRIVILEGE, y.TYPE, y.GRANTABLE, y.GRANTOR from dba_role_privs x join dba_tab_privs y on x.granted_role = y.grantee
+    where x.GRANTEE = upper(user_name);
     return l_re;
 end;
 /
@@ -170,7 +193,7 @@ end;
 
 CREATE OR REPLACE procedure admin1.createUser(
 username IN NVARCHAR2,
-pass_word IN NVARCHAR2) 
+pass_word IN NVARCHAR2)
 AUTHID CURRENT_USER
 as
 user_name NVARCHAR2(1000) := username;
@@ -180,12 +203,23 @@ BEGIN
     caulenh := 'alter session set "_ORACLE_SCRIPT"=true';
     EXECUTE IMMEDIATE (caulenh);
     caulenh := 'CREATE USER ' || user_name || ' IDENTIFIED BY ' || pwd;
-	EXECUTE IMMEDIATE ( caulenh ); 
+    EXECUTE IMMEDIATE ( caulenh ); 
     caulenh := 'GRANT CREATE SESSION TO ' || user_name;
-	EXECUTE IMMEDIATE ( caulenh ); 
+    EXECUTE IMMEDIATE ( caulenh ); 
 END;
 /
 
+CREATE OR REPLACE procedure system.grantCrypto(
+username IN NVARCHAR2) 
+AUTHID CURRENT_USER
+as
+user_name NVARCHAR2(1000) 		:= username;
+caulenh   VARCHAR2 (1000);
+BEGIN
+    caulenh := 'grant execute on sys.dbms_crypto to ' || user_name;
+    EXECUTE IMMEDIATE (caulenh);                                
+END;
+/
     -- delete user
 CREATE OR REPLACE procedure admin1.deleteUser(
 username IN NVARCHAR2) 
@@ -243,6 +277,7 @@ BEGIN
     caulenh := 'drop role ' || role_name;
 	EXECUTE IMMEDIATE ( caulenh );                                        
 END;
+/
 
     -- Cap role cho user
     CREATE OR REPLACE procedure admin1.grantRoleUser(
@@ -571,6 +606,9 @@ BEGIN
         caulenh := 'grant select on admin1.DICHVUG_NVDV' 
             || ' to ' || user_name;
         EXECUTE IMMEDIATE ( caulenh );
+    elsif (FLAG=65) THEN
+        caulenh := 'GRANT select on admin1.DICHVU TO ';
+        EXECUTE IMMEDIATE caulenh || user_name;
     end if;
 END;
 /
@@ -839,6 +877,9 @@ BEGIN
         caulenh := 'grant select on admin1.DICHVUG_NVDV' 
             || ' to ' || user_name || ' with grant option ';
         EXECUTE IMMEDIATE ( caulenh );
+    ELSIF (FLAG=65) THEN
+        caulenh := 'GRANT select on admin1.DICHVU TO ';
+        EXECUTE IMMEDIATE caulenh || user_name|| ' WITH GRANT OPTION';
     end if;
 END;
 /
@@ -919,6 +960,9 @@ BEGIN
         EXECUTE IMMEDIATE COMMAND || USER_ROLE;
     ELSIF (FLAG=24) THEN
         COMMAND := 'GRANT UPDATE, select on admin1.BANGCHAMCONG TO ';
+        EXECUTE IMMEDIATE COMMAND || USER_ROLE;
+    ELSIF (FLAG=25) THEN
+        COMMAND := 'GRANT UPDATE , select on admin1.DICHVU TO ';
         EXECUTE IMMEDIATE COMMAND || USER_ROLE;
     END IF;
 END;
@@ -1001,6 +1045,244 @@ BEGIN
     ELSIF (FLAG=24) THEN
         COMMAND := 'GRANT UPDATE , select on admin1.BANGCHAMCONG TO ';
         EXECUTE IMMEDIATE COMMAND || USER_ROLE|| ' WITH GRANT OPTION';
+    ELSIF (FLAG=25) THEN
+        COMMAND := 'GRANT UPDATE , select on admin1.DICHVU TO ';
+        EXECUTE IMMEDIATE COMMAND || USER_ROLE|| ' WITH GRANT OPTION';
     END IF;
 END;
+/
+
+CREATE OR REPLACE function admin1.DonThuoc_BS (makb in char, mabs in char, ngaygio in varchar)
+return SYS_REFCURSOR 
+is
+l_re SYS_REFCURSOR;
+ma_kb char(10) := makb;
+ma_bs char(10) := mabs;
+ngay_gio varchar(20) := ngaygio;
+begin
+    OPEN l_re for SELECT dt.MAKB, dt.MABS, 
+    t.TENTHUOC, t.LOAITHUOC, CHITIETDONTHUOC.SOLUONG, CHITIETDONTHUOC.DONVI,
+    dt.DANDO, dt.ngaygio AS NGAY
+    from CHITIETDONTHUOC 
+    inner join DONTHUOC dt on dt.madt = CHITIETDONTHUOC.madt
+    inner join THUOC t on t.MATHUOC = CHITIETDONTHUOC.MATHUOC
+    where dt.mabs = ma_bs and dt.makb =  ma_kb  and dt.ngaygio =  ngay_gio;
+    return l_re;
+end;
+/
+
+CREATE OR REPLACE function admin1.DichVu_TT
+return SYS_REFCURSOR 
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT * from admin1.DICHVU;
+    return l_re;
+end;
+/
+
+-- Thu hoi quyen execute function
+CREATE OR REPLACE procedure admin1.revokeExecuteFunction(
+object_name IN NVARCHAR2,
+role_name IN NVARCHAR2) 
+AUTHID CURRENT_USER
+as
+caulenh   VARCHAR2 (1000);
+BEGIN
+        caulenh := 'revoke execute on admin1.' ||  object_name
+            || ' from ' || role_name;
+        EXECUTE IMMEDIATE ( caulenh );  
+END;
+/
+
+-- Xem danh sach table
+CREATE OR REPLACE function admin1.xemDanhSachTable
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT
+  table_name, owner
+FROM
+  dba_tables where OWNER != 'ORDDATA' and OWNER not like '%SYS%' 
+  and OWNER != 'XDB' and OWNER != 'GSMADMIN_INTERNAL' and OWNER != 'DBSNMP'
+  and OWNER != 'OUTLN' and OWNER != 'DBSFWUSER';
+    return l_re;
+end;
+/
+
+-- Xem danh sach role
+CREATE OR REPLACE function admin1.xemDanhSachRole
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT ROLE FROM DBA_ROLES;
+    return l_re;
+end;
+/
+
+-- Xem danh sach view
+CREATE OR REPLACE function admin1.xemDanhSachView
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for select view_name, owner from dba_views where owner not like '%SYS%' and owner != 'ORDDATA' and owner != 'XDB'
+and OWNER != 'DBSNMP' and OWNER != 'GSMADMIN_INTERNAL';
+    return l_re;
+end;
+/
+
+create or replace procedure insertHSBN(makb in char, stt in smallint, ngay in varchar, mabs in char, trieuchung in nvarchar2, ketluan in varchar2)
+as
+    input_string varchar2(2048) := ketluan;
+    raw_input RAW(128) := UTL_RAW.CAST_TO_RAW(CONVERT(input_string,
+    'AL32UTF8','US7ASCII'));
+    
+    key_string VARCHAR2(8) := 'spsecret';
+    raw_key RAW(128) := UTL_RAW.CAST_TO_RAW(CONVERT(key_string,
+    'AL32UTF8','US7ASCII'));
+    
+    encrypted_raw RAW(2048);
+    encrypted_string VARCHAR2(2048);
+    
+    caulenh VARCHAR2(1000);
+
+BEGIN
+     encrypted_raw := dbms_crypto.Encrypt(src => raw_input,
+     typ => DBMS_CRYPTO.DES_CBC_PKCS5,
+     key => raw_key);
+ 
+    encrypted_string  := rawtohex(UTL_RAW.CAST_TO_RAW(encrypted_raw));
+ 
+    caulenh:= 'INSERT INTO HOSOBENHAN VALUES ( 
+    ''' ||  makb || '''' || ',' 
+    || stt || ',' 
+    || '''' || ngay || '''' || ','
+    || '''' || mabs || '''' || ','
+    || '''' || trieuchung || '''' || ','
+  ||  '''' || encrypted_string || '''' || ')';
+  
+  --DBMS_OUTPUT.PUT_LINE(caulenh);
+    
+    execute immediate (caulenh);
+END;
+/
+
+CREATE OR REPLACE function admin1.Decryp (TC IN varchar2, key_string IN VARCHAR2)
+return varchar2
+IS
+
+    raw_key RAW(128) := UTL_RAW.CAST_TO_RAW(CONVERT(key_string,'AL32UTF8','US7ASCII'));
+
+    encrypted_raw RAW(2048) := hextoraw(UTL_RAW.CAST_TO_VARCHAR2(TC));
+
+    encrypted_string VARCHAR2(2048);
+    decrypted_raw RAW(2048);
+    decrypted_string VARCHAR2(2048);
+BEGIN
+    
+    decrypted_raw := dbms_crypto.Decrypt(src => encrypted_raw, typ => DBMS_CRYPTO.DES_CBC_PKCS5, key => raw_key);
+
+    decrypted_string := CONVERT(UTL_RAW.CAST_TO_VARCHAR2(decrypted_raw),'US7ASCII','AL32UTF8');
+    --dbms_output.put_line(decrypted_string);
+    return decrypted_string;
+END;
+/
+
+CREATE OR REPLACE function admin1.showHSBN
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+loai VARCHAR2(8);
+begin
+    select STH into loai from admin1.LOAIDICHVU;
+    OPEN l_re for SELECT makb, stt, ngay, mabs, trieuchung,
+    admin1.Decryp (ketluan, loai) as ketluan 
+    from ADMIN1.HOSOBENHAN;
+    return l_re;
+end;
+/
+
+-- Cap quyen execute function
+CREATE OR REPLACE procedure admin1.grantExecuteFunction(
+username IN NVARCHAR2,
+check_num IN INTEGER) 
+AUTHID CURRENT_USER
+as
+user_name NVARCHAR2(1000) := username;
+caulenh   VARCHAR2 (1000);
+flag INTEGER := check_num;
+BEGIN
+    if flag = 1 then
+        caulenh := 'grant execute on admin1.DichVu_TT' 
+            || ' to ' || user_name;
+        EXECUTE IMMEDIATE ( caulenh );  
+    elsif flag = 2 then
+        caulenh := 'grant select on admin1.LOAIDICHVU' 
+            || ' to ' || user_name;
+        EXECUTE IMMEDIATE ( caulenh );
+        caulenh := 'grant execute on admin1.DonThuoc_BS' 
+            || ' to ' || user_name;
+        EXECUTE IMMEDIATE ( caulenh ); 
+        caulenh := 'grant select on admin1.HoSoBenhNhan_BS' 
+            || ' to ' || user_name;
+        EXECUTE IMMEDIATE ( caulenh ); 
+        caulenh := 'grant execute on admin1.Decryp' 
+            || ' to ' || user_name;
+        EXECUTE IMMEDIATE ( caulenh ); 
+        caulenh := 'grant select on admin1.HOSOBENHAN to ' || username;
+        EXECUTE IMMEDIATE ( caulenh ); 
+        caulenh := 'grant execute on admin1.showHSBN' 
+            || ' to ' || user_name;
+        EXECUTE IMMEDIATE ( caulenh ); 
+    end if;
+END;
+/
+
+-- Xem audit DONTHUOC
+CREATE OR REPLACE function admin1.showAuditDT
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT AUDIT_TYPE, OS_USER, USERHOST,
+    OBJECT_SCHEMA, OBJECT_NAME, POLICY_NAME,
+    STATEMENT_TYPE, EXTENDED_TIMESTAMP, SQL_TEXT,
+    CURRENT_USER FROM DBA_COMMON_AUDIT_TRAIL where object_name = 'DONTHUOC';
+    return l_re;
+end;
+/
+
+-- Xem audit HOSOBENHAN
+CREATE OR REPLACE function admin1.showAuditHSBN
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for SELECT AUDIT_TYPE, OS_USER, USERHOST,
+    OBJECT_SCHEMA, OBJECT_NAME, POLICY_NAME,
+    STATEMENT_TYPE, EXTENDED_TIMESTAMP, SQL_TEXT,
+    CURRENT_USER FROM DBA_COMMON_AUDIT_TRAIL where object_name = 'HOSOBENHAN';
+    return l_re;
+end;
+/
+
+-- Xem audit LOGON
+CREATE OR REPLACE function admin1.showAuditLO
+return SYS_REFCURSOR 
+AUTHID CURRENT_USER
+is
+l_re SYS_REFCURSOR;
+begin
+    OPEN l_re for select * from admin1.AUD_LOGON;
+    return l_re;
+end;
 /

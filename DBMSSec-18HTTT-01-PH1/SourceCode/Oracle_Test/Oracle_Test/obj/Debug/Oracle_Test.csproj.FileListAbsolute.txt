@@ -80,3 +80,13 @@ C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Or
 C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.csproj.CopyComplete
 C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.exe
 C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.pdb
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.HoSoBenhNhan.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.XemDSDichVu.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.capQuyenTheoChinhSachScreen.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.thuHoiQuyenRoleChinhSachScreen.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.capRoleUserPolicyScreen.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.doiTuongHienCoOption.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.auditDT.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.auditHSBN.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.auditLogOn.resources
+C:\Desktop\DBMSSec-18HTTT-01-PH1\SourceCode\Oracle_Test\Oracle_Test\obj\Debug\Oracle_Test.auditOption.resources

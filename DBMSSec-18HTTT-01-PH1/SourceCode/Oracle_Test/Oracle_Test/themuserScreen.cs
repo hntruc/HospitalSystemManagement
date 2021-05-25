@@ -22,9 +22,13 @@ namespace Oracle_Test
         {
             OracleConnection con = new OracleConnection();
             //con.ConnectionString = "User Id=SYSTEM;Password=123456;Data Source=localhost:1521/xe";
+            string x = "User Id=" + globalConnect.userid +
+                ";Password=" + globalConnect.password + ";Data Source=localhost:1521/xe;";
             con.ConnectionString = "User Id=" + globalConnect.userid +
-                ";Password=" + globalConnect.password + ";Data Source=localhost:1521/xe";
+                ";Password=" + globalConnect.password + ";Data Source=localhost:1521/xe;"; 
+       
             con.Open();
+
             //string connect_string = "grant create session to " + username_text.Text + ";";
 
             try
@@ -42,6 +46,26 @@ namespace Oracle_Test
             {
                 //MessageBox.Show(ex.Message);
                 MessageBox.Show("Tài khoản đã tồn tại.");
+            }
+            con.Close();
+
+            con.ConnectionString = "User Id=SYS" +
+                ";Password=123456" + ";Data Source=localhost:1521/xe;DBA Privilege=SYSDBA";
+            con.Open();
+            string cmd_x = "grant execute on sys.dbms_crypto to " + username_text.Text;
+            try
+            {
+                using (OracleCommand cmd = new OracleCommand(cmd_x, con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+                    //MessageBox.Show("Tạo user thành công!");
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                //MessageBox.Show("Tài khoản đã tồn tại.");
             }
             con.Close();
 

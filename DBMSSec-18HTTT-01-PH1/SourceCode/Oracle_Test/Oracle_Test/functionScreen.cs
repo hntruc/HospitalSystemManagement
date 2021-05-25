@@ -17,6 +17,11 @@ namespace Oracle_Test
         {
             InitializeComponent();
         }
+        public functionScreen(OracleConnection oc)
+        {
+            oc.Close();
+            InitializeComponent();
+        }
 
         private void ttvq_btn_Click(object sender, EventArgs e)
         {
@@ -53,7 +58,28 @@ namespace Oracle_Test
             this.Hide();  
         }
 
-        private void csqur_btn_Click(object sender, EventArgs e)
+        private void cqtcs_btn_Click(object sender, EventArgs e)
+        {
+            capQuyenTheoChinhSachScreen c = new capQuyenTheoChinhSachScreen();
+            c.Show();
+            this.Hide();
+        }
+
+        private void thqtcs_btn_Click(object sender, EventArgs e)
+        {
+            thuHoiQuyenRoleChinhSachScreen t = new thuHoiQuyenRoleChinhSachScreen();
+            t.Show();
+            this.Hide();
+        }
+
+        private void crcu_btn_Click(object sender, EventArgs e)
+        {
+            capRoleUserPolicyScreen c = new capRoleUserPolicyScreen();
+            c.Show();
+            this.Hide();
+        }
+
+        private void dx_btn_Click(object sender, EventArgs e)
         {
             if (globalConnect.userid == "admin1" || globalConnect.userid == "ADMIN1")
             {
@@ -61,7 +87,7 @@ namespace Oracle_Test
                 l.Show();
                 this.Hide();
             }
-            
+
             else
             {
                 OracleConnection con = new OracleConnection();
@@ -89,5 +115,20 @@ namespace Oracle_Test
                 this.Hide();
             }
         }
+
+        private void xdscdthctcsdl_btn_Click(object sender, EventArgs e)
+        {
+            doiTuongHienCoOption d = new doiTuongHienCoOption();
+            d.Show();
+            this.Hide();
+        }
+
+        private void aud_btn_Click(object sender, EventArgs e)
+        {
+            auditOption a = new auditOption();
+            a.Show();
+            this.Close();
+        }
+
     }
 }
