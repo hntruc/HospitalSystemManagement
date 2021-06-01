@@ -319,6 +319,8 @@ user_name NVARCHAR2(1000) := username;
 role_name NVARCHAR2(1000) := rolename;
 caulenh   VARCHAR2 (1000);
 BEGIN
+    caulenh := 'alter session set "_ORACLE_SCRIPT"=true';
+    EXECUTE IMMEDIATE (caulenh);
     caulenh := 'revoke ' || role_name || ' from ' || user_name;
 	EXECUTE IMMEDIATE ( caulenh );                                        
 END;
@@ -335,6 +337,8 @@ quyen NVARCHAR2(1000) := quyen_input;
 object_n NVARCHAR2(1000) := object_name;
 caulenh   VARCHAR2 (1000);
 BEGIN
+    caulenh := 'alter session set "_ORACLE_SCRIPT"=true';
+    EXECUTE IMMEDIATE (caulenh);
     caulenh := 'revoke ' || quyen || ' on ' || object_n || ' from ' || username;
 	EXECUTE IMMEDIATE ( caulenh );                                        
 END;
@@ -1089,6 +1093,8 @@ AUTHID CURRENT_USER
 as
 caulenh   VARCHAR2 (1000);
 BEGIN
+        caulenh := 'alter session set "_ORACLE_SCRIPT"=true';
+        EXECUTE IMMEDIATE (caulenh);
         caulenh := 'revoke execute on admin1.' ||  object_name
             || ' from ' || role_name;
         EXECUTE IMMEDIATE ( caulenh );  
@@ -1107,7 +1113,8 @@ begin
 FROM
   dba_tables where OWNER != 'ORDDATA' and OWNER not like '%SYS%' 
   and OWNER != 'XDB' and OWNER != 'GSMADMIN_INTERNAL' and OWNER != 'DBSNMP'
-  and OWNER != 'OUTLN' and OWNER != 'DBSFWUSER';
+  and OWNER != 'OUTLN' and OWNER != 'DBSFWUSER' 
+  order by table_name ASC;
     return l_re;
 end;
 /
@@ -1119,7 +1126,7 @@ AUTHID CURRENT_USER
 is
 l_re SYS_REFCURSOR;
 begin
-    OPEN l_re for SELECT ROLE FROM DBA_ROLES;
+    OPEN l_re for SELECT ROLE FROM DBA_ROLES order by ROLE ASC;
     return l_re;
 end;
 /

@@ -103,10 +103,10 @@
             // 
             // xem_btn
             // 
-            this.xem_btn.Location = new System.Drawing.Point(1400, 55);
+            this.xem_btn.Location = new System.Drawing.Point(1400, 38);
             this.xem_btn.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.xem_btn.Name = "xem_btn";
-            this.xem_btn.Size = new System.Drawing.Size(200, 60);
+            this.xem_btn.Size = new System.Drawing.Size(200, 78);
             this.xem_btn.TabIndex = 26;
             this.xem_btn.Text = "Xem";
             this.xem_btn.UseVisualStyleBackColor = true;
@@ -149,6 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(2685, 731);
             this.Controls.Add(this.button3);
@@ -163,7 +164,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "thuHoiQuyenRoleChinhSachScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "thuHoiQuyenRoleChinhSachScreen";
+            this.Text = "Thu hồi quyền";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
